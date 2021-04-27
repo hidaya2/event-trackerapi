@@ -8,11 +8,11 @@ const {
 const router = express.Router()
 
 router.route("/")
-.post(createEvent)
+.post(protect, createEvent)
 .get(getAllEvent)
 
 router.route("/:_id")
-.get(getSingleEvent)
-.put(updateEvent).delete(deleteEvent)
+.get(protect, getSingleEvent)
+.put(protect, updateEvent).delete(protect, deleteEvent)
 
 module.exports = router
